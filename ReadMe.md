@@ -61,10 +61,8 @@ We provide scalable model configurations by adjusting the **VAE/DiT LoRA ranks**
 <th rowspan="2" align="center">λ</th>
 
 <th colspan="3" align="center">📷 Kodak</th>
-<th align="center">|</th>
 
 <th colspan="4" align="center">🏆 CLIC</th>
-<th align="center">|</th>
 
 <th colspan="4" align="center">🌄 DIV2K</th>
 </tr>
@@ -73,13 +71,11 @@ We provide scalable model configurations by adjusting the **VAE/DiT LoRA ranks**
 <th>BPP ↓</th>
 <th>LPIPS ↓</th>
 <th>DISTS ↓</th>
-<th>|</th>
 
 <th>BPP ↓</th>
 <th>LPIPS ↓</th>
 <th>DISTS ↓</th>
 <th>FID ↓</th>
-<th>|</th>
 
 <th>BPP ↓</th>
 <th>LPIPS ↓</th>
@@ -97,13 +93,11 @@ We provide scalable model configurations by adjusting the **VAE/DiT LoRA ranks**
 <td align="center">0.080</td>
 <td align="center">0.094</td>
 <td align="center">0.059</td>
-<td align="center">|</td>
 
 <td align="center">0.079</td>
 <td align="center">0.067</td>
 <td align="center">0.038</td>
 <td align="center">3.06</td>
-<td align="center">|</td>
 
 <td align="center">0.089</td>
 <td align="center">0.084</td>
@@ -118,13 +112,11 @@ We provide scalable model configurations by adjusting the **VAE/DiT LoRA ranks**
 <td align="center">0.081</td>
 <td align="center">0.091</td>
 <td align="center">0.055</td>
-<td align="center">|</td>
 
 <td align="center">0.072</td>
 <td align="center">0.070</td>
 <td align="center">0.034</td>
 <td align="center">2.66</td>
-<td align="center">|</td>
 
 <td align="center">0.084 </td>
 <td align="center">0.086</td>
