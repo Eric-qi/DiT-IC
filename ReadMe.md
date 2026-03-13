@@ -220,7 +220,7 @@ Download the following datasets and place them in the corresponding directories:
 
 | Dataset    | Size         |
 | ---------- | ------------ |
-| [LSDIR](https://ofsoundof.github.io/lsdir-data/)      | ~5K images   |
+| [LSDIR](https://ofsoundof.github.io/lsdir-data/)      | ~50K images   |
 | [MLIC-Train-100K](https://huggingface.co/datasets/Whiteboat/MLIC-Train-100K) | ~100K images |
 
 
@@ -233,6 +233,7 @@ Download the required pretrained components:
 
 Place them into `SANA/` and `ELIC/weights`. 
 
+A simplified training pipeline is provided below.  
 
 ### Stage 1 — Train w/o GAN loss
 ```bash
@@ -254,7 +255,7 @@ Examples:
 
 - Stage1 λ = 0.5 → Stage2 λ = 2.0
 
-
+💡 More advanced strategies, such as incorporating image–text embeddings (e.g., CLIP loss), better GAN models, or more refined training pipelines, may further improve performance or accelerate training.  Users can modify the configuration files according to their own requirements and hardware setups.
 
 
 ## 3️⃣ Finetune Pretrained Model
