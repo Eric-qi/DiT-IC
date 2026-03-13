@@ -1,0 +1,80 @@
+data:
+  data_path:
+    - /data/data/LSDIR_sub
+    - /data/data/mlic_train512
+  valid_path:
+    - /data/data/valid
+  im_exts: ['JPEG', 'png', 'jpg', 'jpeg', 'PNG']
+  num_workers: 8
+  path_size: [512, 512]
+
+model:
+  model_type: Codec
+  use_checkpoint: false
+  params:
+    time: 999
+    codec_mode: 'self_dist'
+    DiT_mode: 'scale'
+    dit_path: "SANA"
+    elic_path: "ELIC/weights/elic_official.pth"
+    codec_path: ~
+    use_ema: True
+    use_merge: False
+    training: True
+    DiT_params:
+      DiT: True
+      DiT_lora: True
+      lora_rank_DiT: 128
+      lora_alpha_DiT: 128
+      channel_in: 32
+    vae_params:
+      vae_lora: True
+      lora_rank_vae: 64
+      lora_alpha_vae: 64
+    codec_param:
+      ch_emd: 32
+      channel: 320 
+      channel_out: 32
+      num_slices: 5
+      max_support_slices: 5
+      kernel_size: 3
+      drop_path_rate: 0.1
+      depths: [2, 2, 2, 2, 2]
+      num_heads: [16, 16, 16, 16, 16]
+    loss_params:
+      pp_style: true
+      pixelloss_weight: 1.0
+      perceptual_weight: 1.0
+      kl_weight: 0.1
+      disc_start: 1000000 # will not use disc
+      disc_weight: 0.
+      use_vf: ~ 
+      latent: False
+      reverse_proj: True
+      vf_weight: 0.1
+      adaptive_vf: True
+      distmat_margin: 0.25
+      cos_margin: 0.5
+    
+    
+
+# recommend to use default settings
+train:
+  output_dir: 'checkpoints'
+  exp_name: '512_nogan_0.5lrd_100k' # <---- experiment name, set as you like
+  global_batch_size: 18
+  accumulation_steps: 1
+  accumulate_disc: false
+  resume: true
+  log_every: 100
+  ckpt_every: 10000
+  max_steps: 100001
+  global_seed: 903
+  lrd: 0.5
+optimizer:
+  lr: 0.0001
+  aux_lr: 0.001
+  beta2: 0.999
+  beta_vae: [0.9, 0.999]
+  step_lr: [50000, 80000, 90000]
+  max_grad_norm: 4.0

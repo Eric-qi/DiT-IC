@@ -1,0 +1,248 @@
+
+libgomp: Invalid value for environment variable OMP_NUM_THREADS
+Loading pretrained model MUSIQ from /root/.cache/torch/hub/pyiqa/musiq_koniq_ckpt-e95806b9.pth
+Loading pretrained model DISTS from /root/.cache/torch/hub/pyiqa/DISTS_weights-f5e65c96.pth
+/root/miniconda3/lib/python3.12/site-packages/torchmetrics/utilities/prints.py:43: UserWarning: Metric `Kernel Inception Distance` will save all extracted features in buffer. For large datasets this may lead to large memory footprint.
+  warnings.warn(*args, **kwargs)
+========mode is #scale#======
+/root/miniconda3/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Setting up [LPIPS] perceptual loss: trunk [alex], v[0.1], spatial [off]
+/root/miniconda3/lib/python3.12/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/root/miniconda3/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /root/miniconda3/lib/python3.12/site-packages/lpips/weights/v0.1/alex.pth
+Loading pretrained model DISTS from /root/.cache/torch/hub/pyiqa/DISTS_weights-f5e65c96.pth
+Using pp_style for nll loss
+Init Done
+
+Find 24 images in /data/data/Kodak
+
+==============kodim11==============
+clipiqa 0.7377300262451172
+musiq 72.68682098388672
+niqe 2.1460559247560544
+psnr 22.481300354003906
+dists 0.07125705480575562
+ms_ssim 0.812858984517571
+lpips 0.12562930583953857
+[BPP] 0.043294270833333336
+==============kodim05==============
+clipiqa 0.5815055966377258
+musiq 77.25475311279297
+niqe 2.8294184829789977
+psnr 18.687219619750977
+dists 0.07550442218780518
+ms_ssim 0.7632191831059567
+lpips 0.1484716385602951
+[BPP] 0.061686197916666664
+==============kodim04==============
+clipiqa 0.8553659319877625
+musiq 78.24275970458984
+niqe 2.733361669519355
+psnr 25.426849365234375
+dists 0.055073559284210205
+ms_ssim 0.8468607893098313
+lpips 0.10647517442703247
+[BPP] 0.042805989583333336
+==============kodim10==============
+clipiqa 0.7052533030509949
+musiq 69.60099029541016
+niqe 3.6298412137119835
+psnr 25.12213897705078
+dists 0.06796091794967651
+ms_ssim 0.8902950291563289
+lpips 0.09253042936325073
+[BPP] 0.0458984375
+==============kodim06==============
+clipiqa 0.786737859249115
+musiq 71.09950256347656
+niqe 3.2635980811502017
+psnr 20.926950454711914
+dists 0.08278465270996094
+ms_ssim 0.7305417330853573
+lpips 0.1184941902756691
+[BPP] 0.036295572916666664
+==============kodim12==============
+clipiqa 0.6810588836669922
+musiq 73.40504455566406
+niqe 2.9359847064422073
+psnr 26.162078857421875
+dists 0.0702139139175415
+ms_ssim 0.8519966988109551
+lpips 0.09300294518470764
+[BPP] 0.03564453125
+==============kodim13==============
+clipiqa 0.7411781549453735
+musiq 73.64258575439453
+niqe 1.9980103166460996
+psnr 17.281538009643555
+dists 0.10164916515350342
+ms_ssim 0.6298451598519612
+lpips 0.22392839193344116
+[BPP] 0.04638671875
+==============kodim07==============
+clipiqa 0.7360517382621765
+musiq 76.38159942626953
+niqe 3.094604653741352
+psnr 24.072683334350586
+dists 0.06978553533554077
+ms_ssim 0.9017115178731563
+lpips 0.08542323112487793
+[BPP] 0.051432291666666664
+==============kodim03==============
+clipiqa 0.7469139099121094
+musiq 77.6590805053711
+niqe 4.172605458035671
+psnr 26.994779586791992
+dists 0.06455552577972412
+ms_ssim 0.9069595111461705
+lpips 0.07451675832271576
+[BPP] 0.03955078125
+==============kodim17==============
+clipiqa 0.820827305316925
+musiq 76.60101318359375
+niqe 2.715146219985728
+psnr 24.339679718017578
+dists 0.07172727584838867
+ms_ssim 0.8643186729436466
+lpips 0.10837887972593307
+[BPP] 0.04931640625
+==============kodim16==============
+clipiqa 0.7798240184783936
+musiq 71.11318969726562
+niqe 3.526154613346038
+psnr 24.281349182128906
+dists 0.07307291030883789
+ms_ssim 0.78454431089551
+lpips 0.10712561011314392
+[BPP] 0.03271484375
+==============kodim02==============
+clipiqa 0.7858171463012695
+musiq 71.49781799316406
+niqe 3.3250414688201957
+psnr 26.336210250854492
+dists 0.08210772275924683
+ms_ssim 0.8557741889627369
+lpips 0.11331547051668167
+[BPP] 0.039957682291666664
+==============kodim14==============
+clipiqa 0.7476071715354919
+musiq 73.34522247314453
+niqe 1.9349871945163009
+psnr 20.884206771850586
+dists 0.07686954736709595
+ms_ssim 0.7509982944406868
+lpips 0.15923987329006195
+[BPP] 0.051188151041666664
+==============kodim01==============
+clipiqa 0.6890842318534851
+musiq 69.97870635986328
+niqe 3.3891033471268304
+psnr 20.398860931396484
+dists 0.07485443353652954
+ms_ssim 0.7680939162259784
+lpips 0.1476948857307434
+[BPP] 0.051595052083333336
+==============kodim15==============
+clipiqa 0.8076248168945312
+musiq 75.11005401611328
+niqe 3.6460940950625593
+psnr 24.978618621826172
+dists 0.05542343854904175
+ms_ssim 0.8891661645003613
+lpips 0.09226378798484802
+[BPP] 0.038981119791666664
+==============kodim24==============
+clipiqa 0.49353551864624023
+musiq 74.47624969482422
+niqe 2.0775014466636343
+psnr 19.968904495239258
+dists 0.08806908130645752
+ms_ssim 0.7990064511105647
+lpips 0.14892645180225372
+[BPP] 0.053792317708333336
+==============kodim18==============
+clipiqa 0.817715585231781
+musiq 76.6600570678711
+niqe 2.0889444834667033
+psnr 20.52608299255371
+dists 0.07408773899078369
+ms_ssim 0.7418561431161582
+lpips 0.1518516093492508
+[BPP] 0.048990885416666664
+==============kodim19==============
+clipiqa 0.7747305035591125
+musiq 75.69632720947266
+niqe 2.599507180947313
+psnr 22.971532821655273
+dists 0.06376999616622925
+ms_ssim 0.8323593520663816
+lpips 0.10332436114549637
+[BPP] 0.040364583333333336
+==============kodim22==============
+clipiqa 0.5898662805557251
+musiq 72.22218322753906
+niqe 2.308200141241695
+psnr 23.322654724121094
+dists 0.08104521036148071
+ms_ssim 0.7697578454916214
+lpips 0.14915388822555542
+[BPP] 0.044677734375
+==============kodim23==============
+clipiqa 0.8319913148880005
+musiq 77.95659637451172
+niqe 3.9900083231818337
+psnr 25.835962295532227
+dists 0.054091453552246094
+ms_ssim 0.9129358349713781
+lpips 0.06310158967971802
+[BPP] 0.038818359375
+==============kodim09==============
+clipiqa 0.7240790724754333
+musiq 75.48538970947266
+niqe 3.6814186121101278
+psnr 25.104198455810547
+dists 0.056274235248565674
+ms_ssim 0.893835786477187
+lpips 0.07929239422082901
+[BPP] 0.035319010416666664
+==============kodim21==============
+clipiqa 0.8196768164634705
+musiq 75.27526092529297
+niqe 2.286090165369418
+psnr 21.106216430664062
+dists 0.07968747615814209
+ms_ssim 0.8368847635932185
+lpips 0.12326512485742569
+[BPP] 0.037760416666666664
+==============kodim20==============
+clipiqa 0.7751392126083374
+musiq 76.89772033691406
+niqe 3.3188781203589417
+psnr 24.775121688842773
+dists 0.0564265251159668
+ms_ssim 0.9133318558037427
+lpips 0.06323646008968353
+[BPP] 0.030029296875
+==============kodim08==============
+clipiqa 0.675625741481781
+musiq 74.47510528564453
+niqe 2.7647587848276567
+psnr 17.6859188079834
+dists 0.0913693904876709
+ms_ssim 0.8182583278121044
+lpips 0.1409824937582016
+[BPP] 0.06005859375
+==============The Avg. Results w/ 24 images==============
+clipiqa: 0.73771
+musiq: 74.44850
+niqe: 2.93564
+psnr: 22.90296
+dists: 0.07240
+ms_ssim: 0.82356
+lpips: 0.11748
+fid: 46.96
+
+[Average BPP] 0.04402330186631944

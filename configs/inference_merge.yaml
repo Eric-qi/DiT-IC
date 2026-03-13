@@ -1,0 +1,47 @@
+model:
+  model_type: Codec
+  params:
+    time: 999
+    codec_mode: 'self_dist'
+    DiT_mode: 'scale'
+    dit_path: "SANA"
+    elic_path: ~
+    codec_path: ~
+    use_ema: True
+    use_merge: True
+    training: False
+    DiT_params:
+      DiT: True
+      DiT_lora: True
+      lora_rank_DiT: 128
+      lora_alpha_DiT: 128
+      channel_in: 32
+    vae_params:
+      vae_lora: True
+      lora_rank_vae: 64
+      lora_alpha_vae: 64
+    codec_param:
+      ch_emd: 32
+      channel: 320 
+      channel_out: 32
+      num_slices: 5
+      max_support_slices: 5
+      kernel_size: 3
+      drop_path_rate: 0.1
+      depths: [2, 2, 2, 2, 2]
+      num_heads: [16, 16, 16, 16, 16]
+    loss_params:
+      pp_style: true
+      pixelloss_weight: 1.0
+      perceptual_weight: 1.0
+      kl_weight: 0.1
+      disc_start: 0
+      disc_weight: 0.5
+      use_vf: ~ 
+      latent: False
+      reverse_proj: True
+      vf_weight: 0.1
+      adaptive_vf: True
+      distmat_margin: 0.25
+      cos_margin: 0.5
+    

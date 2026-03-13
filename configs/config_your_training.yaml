@@ -1,0 +1,80 @@
+data:
+  data_path: # traing set path.
+    - /data/data/LSDIR_sub
+    - /data/data/mlic_train512
+  valid_path: # valid set path.
+    - /data/data/valid
+  im_exts: ['JPEG', 'png', 'jpg', 'jpeg', 'PNG'] 
+  num_workers: 8 # dataloader num_workers.
+  path_size: [512, 512] # training image resolution. INT, e.g., 256, 512, 1024
+
+model:
+  model_type: Codec
+  use_checkpoint: false # Not used yet, ignore.
+  params:
+    time: 999 # Initial Time step in one-step denoising, in scheduler.
+    codec_mode: 'self_dist' # Using self alignment
+    DiT_mode: 'scale'  # The denoising mode in scheduler
+    dit_path: "SANA" # The DiT model path. Cannot Be Null when use_merge==False
+    elic_path: "ELIC/weights/elic_official.pth" # The Aux elic model path. Cannot Be Null when use_merge==False
+    codec_path: ~ # pretrained model weights path, can be null.
+    use_ema: True # whether to use EMA weights. Only useful when use_merge==False
+    use_merge: True # whether to load merged_weights for initialization
+    training: True # enable lora
+    DiT_params:
+      DiT: True # enable DiT
+      DiT_lora: True # enable lora
+      lora_rank_DiT: 128 # the rank for lora. INT, e.g., 16, 32, 64, 128, ...
+      lora_alpha_DiT: 128 # the alpha for lora. INT, e.g., 16, 32, 64, 128, ...
+      channel_in: 32
+    vae_params:
+      vae_lora: True # enable lora
+      lora_rank_vae: 64 # the rank for lora. INT, e.g., 16, 32, 64, 128, ...
+      lora_alpha_vae: 64 # the alpha for lora. INT, e.g., 16, 32, 64, 128, ...
+    codec_param:
+      ch_emd: 32 # the number of DiT input channel
+      channel: 320 # the number of latent channel.  INT, e.g., 192, 256, 320,
+      channel_out: 32 # the number of DiT input channel
+      num_slices: 5 # Not used yet, ignore.
+      max_support_slices: 5 # Not used yet, ignore.
+      kernel_size: 3 # Not used yet, ignore.
+      drop_path_rate: 0.1 # Not used yet, ignore.
+      depths: [2, 2, 2, 2, 2] # Not used yet, ignore.
+      num_heads: [16, 16, 16, 16, 16] # Not used yet, ignore.
+    loss_params:
+      pp_style: true # The loss type in models.losses.
+      pixelloss_weight: 1.0  # the weight of MSE loss.
+      perceptual_weight: 1.0 # the weight of LPIPS loss.
+      kl_weight: 0.1 # Not used yet, ignore.
+      disc_start: 0 # the starting iteration of GAN loss.
+      disc_weight: 0.5 # the weight of Gan loss.
+      use_vf: ~  # Not used yet, ignore.
+      latent: False # Not used yet, ignore.
+      reverse_proj: True # Not used yet, ignore.
+      vf_weight: 0.1 # Not used yet, ignore.
+      adaptive_vf: True # Not used yet, ignore.
+      distmat_margin: 0.25 # Not used yet, ignore.
+      cos_margin: 0.5 # Not used yet, ignore.
+    
+    
+
+# recommend to use default settings
+train:
+  output_dir: 'checkpoints'
+  exp_name: '512_gan_0.5lrd_50k' # <---- experiment name, set as you like
+  global_batch_size: 72 # The total batch size = num_gpu x per_gpu_bs.  INT, e.g., 4, 8, 16, 32, 64, ...
+  accumulation_steps: 1 # Not used yet, ignore.
+  accumulate_disc: false # Not used yet, ignore.
+  resume: true # whether to automaticly load prior ckpts.
+  log_every: 100 # the freq. to output loss.
+  ckpt_every: 10000 # the freq. to save ckpt.
+  max_steps: 50001 # the total training iterations.
+  global_seed: 903
+  lrd: 0.5 # the lambda to control rate-distortion tradeoff. Larger lrd --> lower bitrate, larger distortion
+optimizer:
+  lr: 0.0001 # learning rate
+  aux_lr: 0.001 # learning rate for aux loss
+  beta2: 0.999 # Adam optimizer params.
+  beta_vae: [0.9, 0.999] # Adam optimizer params.
+  step_lr: [10000, 30000, 45000] # The iteration to reduce lr.
+  max_grad_norm: 4.0 # the grad norm for gradient clip.
