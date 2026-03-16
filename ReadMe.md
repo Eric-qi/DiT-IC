@@ -3,7 +3,7 @@
 <p align="center"> <img src="./assets/logo.png" width="400"> </p> <p align="center">
 
 </p> <p align="center"> 
-<a href="##s"> <img src="https://img.shields.io/badge/ArXiv-2803.11729-b31b1b.svg"> 
+<a href="https://arxiv.org/abs/2603.13162"> <img src="https://img.shields.io/badge/ArXiv-2603.13162-b31b1b.svg"> 
 </a> 
 <a href="https://huggingface.co/JunqiShi/DiT-IC"> <img src="https://img.shields.io/badge/🤗%20HuggingFace-Models-yellow">
 </a>
