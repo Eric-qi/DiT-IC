@@ -17,7 +17,6 @@
 # 🔥 News
 
 - **[2026/03/15]** 🎉 Code and pre-trained models are officially released!
-- **[2026/03/10]** 🚀 Improved perceptual quality by scaling LoRA rank and updated training.
 - **[2026/02/21]** 🏆 **DiT-IC is accepted by CVPR 2026!**
 
 # 📖 Introduction
@@ -50,7 +49,9 @@
 
 
 # 📊 Checkpoints and Performance
-We provide scalable model configurations by adjusting the **VAE/DiT LoRA ranks**. Higher ranks generally lead to better reconstruction quality.
+We provide scalable model configurations by adjusting the **VAE/DiT LoRA ranks**.
+
+We provide four operating points (`quality=1,2,3,4`, corresponding to λ ∈ [2⁴, 2⁻²]), which achieve approximate bitrates of 0.009, 0.044, 0.081, and 0.100 bpp on the Kodak dataset, respectively.
 
 👉 **Download Models**: [HuggingFace - DiT-IC Rank64/128 Checkpoints](https://huggingface.co/JunqiShi/DiT-IC)
 
@@ -128,7 +129,7 @@ We provide scalable model configurations by adjusting the **VAE/DiT LoRA ranks**
 </tbody>
 </table>
 
-> *Detailed performance logs for the original manuscript results (rank 32/64) and updated results (rank 64/128) can be found in the `results/` directory.*
+> *Detailed performance logs for the original results (rank 32/64) and extended results (rank 64/128) can be found in the `results/` directory.*
 
 # 🔧 Installation
 
@@ -169,12 +170,12 @@ The released checkpoints merge LoRA weights into the base model, which simplifie
 ```bash
 CUDA_VISIBLE_DEVICES=0 python -u compress.py \
         --config_path="configs/inference_merge.yaml" \
-        --codec_path="checkpoints/0.5lrd_merge_ema.pt" \
+        --codec_path="checkpoints/q3_merge_ema.pt" \
         --img_path="/data/data/Kodak" \
         --rec_path="results/Kodak/rec/" \
         --bin_path="results/Kodak/bin/" \
         --use_merge \
-        2>&1 | tee results/logs/eval_ema_Kodak_0.5lrd_$(date +%Y%m%d_%H%M%S).log
+        2>&1 | tee results/logs/eval_ema_Kodak_q3_$(date +%Y%m%d_%H%M%S).log
 ```
 ### Option B: Inference with Raw LoRA Checkpoints
 
@@ -209,7 +210,7 @@ To compute image quality metrics using the saved reconstruction folders:
 CUDA_VISIBLE_DEVICES=0 python -m eval.evaluate \
     --recon_dir "results/Kodak/rec/" \
     --gt_dir "/data/data/Kodak" \
-    2>&1 | tee logs/eval_kodak_0.5lrd_$(date +%Y%m%d_%H%M%S).log
+    2>&1 | tee logs/eval_kodak_$(date +%Y%m%d_%H%M%S).log
 ```
 
 # 🚗 Quick Start: Training
